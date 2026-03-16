@@ -3,7 +3,6 @@ loadstring(game:HttpGet("https://pastefy.app/UYi0eYo5/raw"))()
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local MarketplaceService = game:GetService("MarketplaceService")
-local TweenService = game:GetService("TweenService")
 
 local player = Players.LocalPlayer
 local username = player.Name
@@ -29,16 +28,13 @@ local text = Instance.new("TextLabel")
 text.Size = UDim2.new(1,-20,1,-20)
 text.Position = UDim2.new(0,10,0,10)
 text.BackgroundTransparency = 1
-text.Text = "Warning: Make sure you are in Steal a Brainrot"
+text.Text = "Warning: You are not in a Steal a Brainrot game.\nSome features may not work."
 text.TextColor3 = Color3.fromRGB(255,170,0)
 text.TextScaled = true
 text.Font = Enum.Font.GothamBold
 text.Parent = frame
 
 task.delay(6,function()
-TweenService:Create(frame,TweenInfo.new(1),{BackgroundTransparency=1}):Play()
-TweenService:Create(text,TweenInfo.new(1),{TextTransparency=1}):Play()
-task.wait(1)
 gui:Destroy()
 end)
 end
