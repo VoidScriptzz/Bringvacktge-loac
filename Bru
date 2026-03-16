@@ -9,7 +9,9 @@ local username = player.Name
 local userid = player.UserId
 local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
 
-if gameName ~= "Steal a Brainrot" then
+local validGame = string.find(string.lower(gameName),"steal a brainrot") ~= nil
+
+if not validGame then
 local gui = Instance.new("ScreenGui")
 gui.Name = "VoidWarning"
 gui.ResetOnSpawn = false
@@ -26,7 +28,7 @@ local text = Instance.new("TextLabel")
 text.Size = UDim2.new(1,-20,1,-20)
 text.Position = UDim2.new(0,10,0,10)
 text.BackgroundTransparency = 1
-text.Text = "Warning: You are not in Steal a Brainrot.\nSome features may not work."
+text.Text = "Warning: You are not in a Steal a Brainrot game.\nSome features may not work."
 text.TextColor3 = Color3.fromRGB(255,170,0)
 text.TextScaled = true
 text.Font = Enum.Font.GothamBold
