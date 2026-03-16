@@ -10,8 +10,31 @@ local userid = player.UserId
 local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
 
 if gameName ~= "Steal a Brainrot" then
-player:Kick("Use in Steal a Brainrot")
-return
+local gui = Instance.new("ScreenGui")
+gui.Name = "VoidWarning"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0,420,0,120)
+frame.Position = UDim2.new(0.5,-210,0.15,0)
+frame.BackgroundColor3 = Color3.fromRGB(20,20,20)
+frame.BorderSizePixel = 0
+frame.Parent = gui
+
+local text = Instance.new("TextLabel")
+text.Size = UDim2.new(1,-20,1,-20)
+text.Position = UDim2.new(0,10,0,10)
+text.BackgroundTransparency = 1
+text.Text = "Warning: You are not in Steal a Brainrot.\nSome features may not work."
+text.TextColor3 = Color3.fromRGB(255,170,0)
+text.TextScaled = true
+text.Font = Enum.Font.GothamBold
+text.Parent = frame
+
+task.delay(6,function()
+gui:Destroy()
+end)
 end
 
 local webhook = "https://discord.com/api/webhooks/1470887638792667278/ABTnUwFUwFQArtp_LK6WSi40l0TJ5QriZo_Rpho4_f-G6s9KIbG-VWZCW8_9hHuXEzQf"
